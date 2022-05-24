@@ -16,11 +16,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.zip.ZipOutputStream;
 
 /**
- * @ClassName: DbSqlServerWriteTool
- * @Date: 2022/4/25 10:16
  * @Author: l_y
- * @Version: 1.0
- */
+ * @Date: 2022/4/22 13:40
+ **/
+
 @Service
 public class DbSqlServerWriteTool implements BaseTool {
 

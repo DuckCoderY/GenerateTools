@@ -16,11 +16,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.zip.ZipOutputStream;
 
 /**
- * @ClassName: DbOracleWriteTool
- * @Date: 2022/4/25 10:02
  * @Author: l_y
- * @Version: 1.0
- */
+ * @Date: 2022/4/22 13:40
+ **/
+
 @Service
 public class DbOracleWriteTool implements BaseTool {
     @Override

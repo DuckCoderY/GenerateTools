@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>project_a_generate_many_type</artifactId>
+    <artifactId>generate_tools</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <name>project_a_generate_many_type</name>
@@ -160,7 +160,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>project_a_generate_many_type</finalName>
+        <finalName>generate_tools</finalName>
     </build>
 
 </project>

@@ -20,11 +20,10 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**
- * @ClassName: GenUtils
- * @Date: 2022/4/22 16:27
  * @Author: l_y
- * @Version: 1.0
- */
+ * @Date: 2022/4/22 13:40
+ **/
+
 
 public class GenUtils {
 
