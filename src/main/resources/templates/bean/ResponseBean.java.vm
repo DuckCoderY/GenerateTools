@@ -1,0 +1,57 @@
+package ${package}${moduleName}.utils;
+
+import lombok.Data;
+
+/**
+ * 响应实体
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@Data
+public class ResponseBean<T> {
+
+    private Integer code;
+    private String msg;
+    private T data;
+
+    private ResponseBean() {
+    }
+
+    private ResponseBean(Integer code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
+    private ResponseBean(Integer code, String msg, T t) {
+        this.code = code;
+        this.msg = msg;
+        this.data = t;
+    }
+
+    public static <T> ResponseBean<T> success() {
+        return new ResponseBean<>(200, "success");
+    }
+
+    public static <T> ResponseBean<T> success(T e) {
+        return new ResponseBean<>(200, "success", e);
+    }
+
+    public static <T> ResponseBean<T> success(Integer code, String msg) {
+        return new ResponseBean<>(code, msg);
+    }
+
+    public static <T> ResponseBean<T> error() {
+        return new ResponseBean<>(500, "error");
+    }
+
+    public static <T> ResponseBean<T> error(T e) {
+        return new ResponseBean<>(500, "error", e);
+    }
+
+    public static <T> ResponseBean<T> error(Integer code, String msg) {
+        return new ResponseBean<>(code, msg);
+    }
+
+}

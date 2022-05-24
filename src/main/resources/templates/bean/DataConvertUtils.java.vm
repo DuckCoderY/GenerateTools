@@ -1,0 +1,29 @@
+package ${package}${moduleName}.utils;
+
+/**
+ * 字段转化工具
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+
+public class DataConvertUtils {
+
+    public static String convertNameJavaToColumn(String javaStr) {
+        StringBuilder builder = new StringBuilder();
+        if (null == javaStr || "".equals(javaStr)) {
+            return builder.toString();
+        }
+        char[] chars = javaStr.toCharArray();
+        for (char aChar : chars) {
+            if (aChar < 97 && aChar > 64) {
+                builder.append("_").append((char) (aChar + 32));
+            } else {
+                builder.append(aChar);
+            }
+        }
+        return builder.toString();
+    }
+
+}

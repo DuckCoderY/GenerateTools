@@ -1,0 +1,102 @@
+.main_style {
+  width: 80%;
+  height: 600px;
+  margin-left: 100px;
+  margin-top: 40px;
+
+  .el-table,
+  .el-table__expanded-cell {
+    background-color: transparent !important;
+  }
+
+  .el-table th,
+  .el-table tr,
+  .el-table td {
+    background-color: transparent !important;
+    text-align: center;
+  }
+  .el-table td, .el-table th.is-leaf,.el-table--border, .el-table--group{
+    border-color: rebeccapurple;
+  }
+  .el-table--border::after, .el-table--group::after, .el-table::before{
+    background-color: rebeccapurple;
+  }
+
+  /*表格滚动条和字体颜色*/
+
+  .el-table {
+    border-bottom: 0;
+    color: cadetblue;
+    /* 设置滚动条的样式 */
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5)
+    }
+
+  }
+
+
+
+
+  /**
+  改变边框颜色
+   */
+  .el-table--border, .el-table--group {
+    border: 1px solid #8A8A8A!important;
+  }
+  /**
+  改变表格内竖线颜色
+   */
+  .el-table--border  td, .el-table--border th, .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed {
+    border-right: 1px solid #8A8A8A!important;
+  }
+  /**
+  改变表格内行线颜色
+   */
+  .el-table  td, .el-table th.is-leaf  {
+    border-bottom: 1px solid #8A8A8A!important;
+  }
+
+  .el-table thead tr th {
+    border-color: #8c939d;
+  }
+}
+
+
+.table-foot {
+  position: absolute;
+  width: 1500px;
+  .el-row {
+    margin-left: 100px;
+    margin-top: 30px;
+
+    .el-col {
+      span {
+        text-align: left;
+
+      }
+
+      .el-input {
+        width: 120px;
+        border-radius: 50px;
+      }
+
+      .el-button {
+        text-align: center;
+        background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+        border-radius: 40px;
+      }
+    }
+  }
+}
