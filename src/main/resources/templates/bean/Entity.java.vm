@@ -32,11 +32,9 @@ public class ${className}Entity implements Serializable {
 #foreach ($column in ${columns})
 	#if($column.columnName == $pk.columnName)
 @TableId(value = "$column.attrNameLow", type = IdType.UUID)
-    @ApiModelProperty(value = "$column.comments")
-	#else
-@ApiModelProperty(value = "$column.comments")
 	#end
-private $column.attrType $column.attrNameLow;
+@ApiModelProperty(value = "$column.comments")
+	private $column.attrType $column.attrNameLow;
 #end
 
 
