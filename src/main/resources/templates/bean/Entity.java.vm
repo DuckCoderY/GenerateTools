@@ -31,7 +31,7 @@ public class ${className}Entity implements Serializable {
 	private static final long serialVersionUID = 1L;
 #foreach ($column in ${columns})
 	#if($column.columnName == $pk.columnName)
-@TableId(value = "$column.attrNameLow", type = IdType.UUID)
+@TableId(value = "$column.attrNameLow", type = IdType.ASSIGN_ID)
 	#end
 @ApiModelProperty(value = "$column.comments")
 	private $column.attrType $column.attrNameLow;
