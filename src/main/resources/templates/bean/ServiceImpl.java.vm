@@ -77,7 +77,7 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Dao, ${clas
     @Override
     public void delete${className}ById(List<String> ids) {
         UpdateWrapper<${className}Entity> wrapper = new UpdateWrapper<>();
-        wrapper.in("id", ids);
+        wrapper.in(${className}Entity.$pk.columnName, ids);
         this.remove(wrapper);
     }
 
