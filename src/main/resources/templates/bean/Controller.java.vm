@@ -38,10 +38,10 @@ public class ${className}Controller {
         @ApiImplicitParam(name = "currPage", value = "currPage", required = true),
             @ApiImplicitParam(name = "pageSize", value = "pageSize", required = true),
     })
-    public ResponseBean<IPage<${className}Entity>> page(@RequestParam(required = false) Map<String, Object> pram,
+    public ResponseBean<IPage<${className}Entity>> page(@RequestParam(required = false) Map<String, Object> param,
                                                @RequestParam(name = "currPage", required = true) int currPage,
                                                @RequestParam(name = "pageSize", required = true) int pageSize) {
-        return ResponseBean.success(${classNameLow}Service.page${className}(pram, currPage, pageSize));
+        return ResponseBean.success(${classNameLow}Service.page${className}(param, currPage, pageSize));
     }
 
     @GetMapping("/list")
