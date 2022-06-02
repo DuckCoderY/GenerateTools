@@ -42,9 +42,9 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Dao, ${clas
     }
 
     @Override
-    public IPage<${className}Entity> page${className}(Map<String, Object> ${classNameLow}Pram, int currPage, int pageSize) {
+    public IPage<${className}Entity> page${className}(Map<String, Object> ${classNameLow}Param, int currPage, int pageSize) {
         QueryWrapper<${className}Entity> query = new QueryWrapper<${className}Entity>();
-        ${classNameLow}Pram.forEach((k, v) -> {
+        ${classNameLow}Param.forEach((k, v) -> {
             if (!"currPage".equals(k) && !"pageSize".equals(k)) {
                 query.eq(DataConvertUtils.convertNameJavaToColumn(k), v);
             }
@@ -54,9 +54,9 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Dao, ${clas
     }
 
     @Override
-    public List<${className}Entity> find${className}List(Map<String, Object> ${classNameLow}Pram) {
+    public List<${className}Entity> find${className}List(Map<String, Object> ${classNameLow}Param) {
         QueryWrapper<${className}Entity> queryWrapper = new QueryWrapper<>();
-        ${classNameLow}Pram.forEach((k, v) -> {
+        ${classNameLow}Param.forEach((k, v) -> {
             queryWrapper.eq(DataConvertUtils.convertNameJavaToColumn(k), v);
         });
         return this.list(queryWrapper);
