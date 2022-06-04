@@ -1,7 +1,7 @@
 import axios from "axios";
 
 let baseUrlPrefix = ""
-let baseUrl = "http://127.0.0.1:10086/back";
+let baseUrl = "http://192.168.0.222:10086/back";
 
 export const request = axios.create({
     timeout: 3600000,

@@ -1,0 +1,112 @@
+import axios from 'axios'
+import storage from "@/utils/storage";
+import router from '@/router'
+import ElementUI from 'element-ui';
+
+
+const service = axios.create({
+    baseURL: "/",
+    timeout: 10000
+})
+
+service.interceptors.request.use(
+    config => {
+        if (!config.url.startsWith('server')) {
+            config.url = 'server' + config.url
+        }
+        // 设置token
+        let token = storage.get("TOKEN")
+        if (token) {
+            config.headers['Authorization'] = token
+        } else {
+            router.push("/login")
+        }
+        return config
+    },
+    error => {
+        console.log(error)
+        return Promise.reject(error)
+    }
+)
+
+function $request(options) {
+    return new Promise((resolve, reject) => {
+        options.method = options.method || "get";
+        options.method = options.method.toLowerCase();
+        var isRaw = options.raw || false;
+        var data = {};
+        var params = {};
+        if (options.method == "get") {
+            params = options.data;
+        } else if (options.method == "put" || options.method == "post" || options.method == "delete") {
+            data = options.data;
+        }
+        service(
+            {
+                url: options.method,
+                method: 'post',
+                data: data,
+                params: params,
+                raw: isRaw,
+                ...options
+            }
+        ).then(res => {
+            if (res.data.code != 0 && res.data.code) {
+                ElementUI.Message.error(res.data.msg)
+            } else {
+                resolve(res.data);
+            }
+        }).catch(error => {
+            if (error.code == "403") {
+                ElementUI.Message.error("当前登陆已过期，请重新登录！")
+                router.push("/login")
+            } else {
+                reject(error);
+            }
+        });
+    });
+}
+
+var get = function (url, data, options) {
+    return $request({
+        url: url,
+        data: data,
+        method: 'get',
+        ...options
+    });
+};
+var post = function (url, data, options) {
+    return $request({
+        url: url,
+        data: data,
+        method: 'post',
+        ...options
+    });
+}
+var put = function (url, data, options) {
+    return $request({
+        url: url,
+        data: data,
+        method: "put",
+        ...options
+    });
+};
+var del = function (url, data, options) {
+    return $request({
+        url: url,
+        data: data,
+        method: 'delete',
+        ...options
+    });
+};
+export default {
+    baseUrl: "server",
+    get, post, put, del,
+    install: function (Vue) {
+        Vue.prototype.$request = $request;
+        Vue.prototype.$get = get;
+        Vue.prototype.$post = post;
+        Vue.prototype.$put = put;
+        Vue.prototype.$delete = del;
+    }
+}

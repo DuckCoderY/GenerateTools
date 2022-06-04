@@ -14,10 +14,11 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * @ClassName: DataBaseService
+ * @Date: 2022/4/22 15:27
  * @Author: l_y
- * @Date: 2022/4/22 13:40
- **/
-
+ * @Version: 1.0
+ */
 @Service
 public class DataBaseService {
     private static final String MYSQL = "MYSQL";

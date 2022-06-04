@@ -1,5 +1,6 @@
 package com.rich.tools;
 
+import com.rich.entity.BooleanEntity;
 import com.rich.entity.CatColumn;
 import com.rich.entity.CatTable;
 import com.rich.entity.Config;
@@ -12,14 +13,14 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.zip.ZipOutputStream;
 
 /**
+ * @ClassName: DbMysqlWriteTool
+ * @Date: 2022/4/22 15:32
  * @Author: l_y
- * @Date: 2022/4/22 13:40
- **/
-
+ * @Version: 1.0
+ */
 @Service
 public class DbMysqlWriteTool implements BaseTool {
 
@@ -62,13 +63,12 @@ public class DbMysqlWriteTool implements BaseTool {
     private byte[] generatorCode(Config config) {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         ZipOutputStream zip = new ZipOutputStream(outputStream);
-        AtomicBoolean beenBoolean = new AtomicBoolean(false);
-        AtomicBoolean convertBoolean = new AtomicBoolean(false);
+        BooleanEntity booleanEntity = new BooleanEntity();
         for (CatTable table : config.getTableNames()) {
             //查询列信息
             List<CatColumn> columns = queryColumns(table.getTableName(), config);
             //生成代码
-            GenUtils.generatorCode(table, columns, zip, config,beenBoolean,convertBoolean);
+            GenUtils.generatorCode(table, columns, zip, config,booleanEntity);
         }
 
         IOUtils.closeQuietly(zip);

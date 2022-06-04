@@ -62,7 +62,7 @@ public class ${className}Controller {
     }
 
     @DeleteMapping("/del")
-    @ApiOperation("根据ID删除数据")
+    @ApiOperation("根据ID查询数据")
     public ResponseBean<Object> del(@RequestParam("ids") List<String> ids) {
         ${classNameLow}Service.delete${className}ById(ids);
         return ResponseBean.success();

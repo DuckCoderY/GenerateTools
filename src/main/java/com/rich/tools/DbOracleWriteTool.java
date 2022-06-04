@@ -1,5 +1,6 @@
 package com.rich.tools;
 
+import com.rich.entity.BooleanEntity;
 import com.rich.entity.CatColumn;
 import com.rich.entity.CatTable;
 import com.rich.entity.Config;
@@ -12,14 +13,14 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.zip.ZipOutputStream;
 
 /**
+ * @ClassName: DbOracleWriteTool
+ * @Date: 2022/4/25 10:02
  * @Author: l_y
- * @Date: 2022/4/22 13:40
- **/
-
+ * @Version: 1.0
+ */
 @Service
 public class DbOracleWriteTool implements BaseTool {
     @Override
@@ -36,7 +37,7 @@ public class DbOracleWriteTool implements BaseTool {
                     " user_tab_comments dtc,\n" +
                     " user_objects uo\n" +
                     " where dt.table_name = dtc.table_name and dt.table_name = uo.object_name and uo.object_type='TABLE'\n" +
-                    " order by uo.CREATED desc";
+                    " order by uo.CREATED desc" ;
             preparedStatement = connection.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
 
@@ -54,9 +55,9 @@ public class DbOracleWriteTool implements BaseTool {
     public void generateCode(Config config, HttpServletResponse response) {
         byte[] data = generatorCode(config);
         response.reset();
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + config.getStoreName() + ".zip\"");
-        response.addHeader("Content-Length", "" + data.length);
-        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Content-Disposition" , "attachment; filename=\"" + config.getStoreName() + ".zip\"");
+        response.addHeader("Content-Length" , "" + data.length);
+        response.addHeader("Access-Control-Allow-Origin" , "*");
         response.setContentType("application/octet-stream; charset=UTF-8");
         try {
             IOUtils.write(data, response.getOutputStream());
@@ -68,13 +69,12 @@ public class DbOracleWriteTool implements BaseTool {
     private byte[] generatorCode(Config config) {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         ZipOutputStream zip = new ZipOutputStream(outputStream);
-        AtomicBoolean beenBoolean = new AtomicBoolean(false);
-        AtomicBoolean convertBoolean = new AtomicBoolean(false);
+        BooleanEntity booleanEntity = new BooleanEntity();
         for (CatTable table : config.getTableNames()) {
             //查询列信息
             List<CatColumn> columns = queryColumns(table.getTableName(), config);
             //生成代码
-            GenUtils.generatorCode(table, columns, zip, config, beenBoolean, convertBoolean);
+            GenUtils.generatorCode(table, columns, zip, config, booleanEntity);
         }
 
         IOUtils.closeQuietly(zip);
@@ -111,7 +111,7 @@ public class DbOracleWriteTool implements BaseTool {
                     "   where col.table_name = upper( ? )\n" +
                     " ) temp\n" +
                     " where temp.row_flg = 1\n" +
-                    " order by temp.column_id";
+                    " order by temp.column_id" ;
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, tableName);
             resultSet = preparedStatement.executeQuery();

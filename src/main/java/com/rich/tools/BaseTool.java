@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
+ * @ClassName: BaseTool
+ * @Date: 2022/4/22 15:40
  * @Author: l_y
- * @Date: 2022/4/22 13:40
- **/
+ * @Version: 1.0
+ */
 
 public interface BaseTool {
 

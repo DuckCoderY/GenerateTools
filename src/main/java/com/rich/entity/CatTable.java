@@ -5,10 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Author: l_y
- * @Date: 2022/4/22 13:40
- **/
-
+ * @ClassName CatTable
+ * @Description
+ * @Author jimi.zhang
+ * @Date 2019/8/10
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

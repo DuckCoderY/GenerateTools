@@ -1,19 +1,16 @@
 package com.rich.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 /**
- * @Author: l_y
- * @Date: 2022/4/22 13:40
- **/
-
+ * @ClassName: MysqlConfig
+ * @Date: 2021/12/12 20:45
+ * @Author: Clown B
+ * @Version: 1.0
+ */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Config {
 
     private String ip;

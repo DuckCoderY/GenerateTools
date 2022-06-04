@@ -1,0 +1,82 @@
+import request from "@/request";
+
+const baseURL = request.baseUrl;
+// ${comments}
+/**
+ * @description: 分页查询
+ * @param param
+ */
+/*
+{
+    #foreach ($column in $columns)
+ //$column.comments
+     $column.attrNameLow: null ,
+    #end
+ currPage:1,
+ pageSize:10,
+}
+*/
+const page = (pageOption) => {
+    const url = `${baseURL}/${classNameLow}/page`;
+    return request.get(url, pageOption)
+}
+
+/**
+ * @description: 列表查询
+ * @param param
+ */
+/*
+{
+    #foreach ($column in $columns)
+ //$column.comments
+     $column.attrNameLow: null ,
+    #end
+}
+*/
+const list = (pageOption) => {
+    const url = `${baseURL}/${classNameLow}/list`;
+    return request.get(url, pageOption)
+}
+
+/**
+ * @description: 保存或者修改
+ * @param  param
+ */
+/*
+{
+    #foreach ($column in $columns)
+ //$column.comments
+     $column.attrNameLow: null ,
+    #end
+}
+*/
+const saveOrUpdate = (data) => {
+    const url = `${baseURL}/${classNameLow}/saveOrUpdate`;
+    return request.post(url, data);
+}
+
+/**
+ * @description: 根据ID删除数据
+ * @param ids = []
+ */
+const remove = (ids) => {
+    const url = `${baseURL}/${classNameLow}/del?ids=${ids}`;
+    return request.del(url);
+}
+
+/**
+ * @description: 根据ID查询数据详细信息
+ * @param id = ""
+ */
+const findOne = (id) => {
+    const url = `${baseURL}/${classNameLow}/findOne/${id}`;
+    return request.get(url);
+}
+
+export default {
+    page,
+    list,
+    saveOrUpdate,
+    remove,
+    findOne
+}

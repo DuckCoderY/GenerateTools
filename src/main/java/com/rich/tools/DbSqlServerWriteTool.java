@@ -1,5 +1,6 @@
 package com.rich.tools;
 
+import com.rich.entity.BooleanEntity;
 import com.rich.entity.CatColumn;
 import com.rich.entity.CatTable;
 import com.rich.entity.Config;
@@ -12,14 +13,14 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.zip.ZipOutputStream;
 
 /**
+ * @ClassName: DbSqlServerWriteTool
+ * @Date: 2022/4/25 10:16
  * @Author: l_y
- * @Date: 2022/4/22 13:40
- **/
-
+ * @Version: 1.0
+ */
 @Service
 public class DbSqlServerWriteTool implements BaseTool {
 
@@ -37,7 +38,7 @@ public class DbSqlServerWriteTool implements BaseTool {
                     " on sep.major_id=so.id and sep.minor_id=0\n" +
                     " where (xtype='U' or xtype='v')\n" +
                     " ) t where 1=1\n" +
-                    " order by t.tableName";
+                    " order by t.tableName" ;
             preparedStatement = connection.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
 
@@ -56,9 +57,9 @@ public class DbSqlServerWriteTool implements BaseTool {
     public void generateCode(Config config, HttpServletResponse response) {
         byte[] data = generatorCode(config);
         response.reset();
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + config.getStoreName() + ".zip\"");
-        response.addHeader("Content-Length", "" + data.length);
-        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Content-Disposition" , "attachment; filename=\"" + config.getStoreName() + ".zip\"");
+        response.addHeader("Content-Length" , "" + data.length);
+        response.addHeader("Access-Control-Allow-Origin" , "*");
         response.setContentType("application/octet-stream; charset=UTF-8");
         try {
             IOUtils.write(data, response.getOutputStream());
@@ -70,13 +71,12 @@ public class DbSqlServerWriteTool implements BaseTool {
     private byte[] generatorCode(Config config) {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         ZipOutputStream zip = new ZipOutputStream(outputStream);
-        AtomicBoolean beenBoolean = new AtomicBoolean(false);
-        AtomicBoolean convertBoolean = new AtomicBoolean(false);
+        BooleanEntity booleanEntity = new BooleanEntity();
         for (CatTable table : config.getTableNames()) {
             //查询列信息
             List<CatColumn> columns = queryColumns(table.getTableName(), config);
             //生成代码
-            GenUtils.generatorCode(table, columns, zip, config, beenBoolean, convertBoolean);
+            GenUtils.generatorCode(table, columns, zip, config, booleanEntity);
         }
 
         IOUtils.closeQuietly(zip);
@@ -114,7 +114,7 @@ public class DbSqlServerWriteTool implements BaseTool {
                     " AND c.minor_id = b.column_id\n" +
                     " WHERE\n" +
                     " a.NAME = ? \n" +
-                    " and sys.types.NAME != 'sysname' ";
+                    " and sys.types.NAME != 'sysname' " ;
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, tableName);
             resultSet = preparedStatement.executeQuery();
@@ -134,7 +134,7 @@ public class DbSqlServerWriteTool implements BaseTool {
     private Connection getConnectionByConfig(Config config) throws SQLException, ClassNotFoundException {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         return DriverManager.getConnection(
-                "jdbc:sqlserver://" + config.getIp() + ":" + config.getPort() + ";DataBaseName=" + config.getStoreName() + "",
+                "jdbc:sqlserver://" + config.getIp() + ":" + config.getPort() + ";DataBaseName=" + config.getStoreName() + "" ,
                 config.getUserName(), config.getPwd());
     }
 
