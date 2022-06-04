@@ -26,24 +26,27 @@
 
 #### 界面
 ![微信截图_20220602094855](https://user-images.githubusercontent.com/105904115/171529982-f28166eb-5cd9-43b0-b022-030f9c91be56.png)
+![微信截图_20220604103116](https://user-images.githubusercontent.com/105904115/171974819-11afb3ae-aa74-44cc-b939-a7be6403a0cd.png)
 
 #### 生成文件目录
-![微信截图_20220604100754](https://user-images.githubusercontent.com/105904115/171974178-3294c1b8-64c8-4c4a-931f-9629c3dd42dd.png)
+![image](https://user-images.githubusercontent.com/105904115/171974815-5c24726d-2a93-4a12-9c61-ac12451d0459.png)
 
 #### 生成后端代码controller
-![微信截图_20220604101234](https://user-images.githubusercontent.com/105904115/171974200-b75bb71e-bcc8-46fb-ba74-e1de5d2094f0.png)
+![image](https://user-images.githubusercontent.com/105904115/171974836-5d33ac76-0d93-4d56-a73e-44169f5df005.png)
 
 #### 生成后端代码service
-![微信截图_20220604101254](https://user-images.githubusercontent.com/105904115/171974237-15e81dc2-c3ee-4dd4-8e13-548d0214426d.png)
+![image](https://user-images.githubusercontent.com/105904115/171974869-62b7a254-c573-481a-89d1-bae7ad5ca231.png)
 
 #### 生成后端代码实体
-![微信截图_20220604101344](https://user-images.githubusercontent.com/105904115/171974264-b2c4cf01-58e0-472b-8937-f214cb263b7b.png)
+![image](https://user-images.githubusercontent.com/105904115/171974883-bb433cf4-927f-425d-b426-358a285cae82.png)
 
 #### 生成后端代码XML
-![微信截图_20220604101429](https://user-images.githubusercontent.com/105904115/171974294-ee6aa2bb-a35f-4589-8b69-078380619dbf.png)
+![image](https://user-images.githubusercontent.com/105904115/171974915-a3c725a9-7071-4a2d-8049-95329f73297d.png)
 
 #### 生成后端代码返回值实体代码
 ![微信截图_20220604101331](https://user-images.githubusercontent.com/105904115/171974305-00173cd8-65be-4855-bfd0-0ca00c4eae5d.png)
 
 #### 生成前端Api代码
-![微信截图_20220604101546](https://user-images.githubusercontent.com/105904115/171974318-dd533897-7b4c-4c27-9c12-3ea879c86ced.png)
+![image](https://user-images.githubusercontent.com/105904115/171975005-4883168d-f62e-4c3f-873a-3bc949b3093a.png)
+![image](https://user-images.githubusercontent.com/105904115/171975085-255d5331-2f16-4781-a989-f7223b86a940.png)
+
