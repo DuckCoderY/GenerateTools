@@ -36,13 +36,13 @@
 #### 生成后端代码service
 ![微信截图_20220604101254](https://user-images.githubusercontent.com/105904115/171974237-15e81dc2-c3ee-4dd4-8e13-548d0214426d.png)
 
-#### 生成后端代码dao
+#### 生成后端代码实体
 ![微信截图_20220604101344](https://user-images.githubusercontent.com/105904115/171974264-b2c4cf01-58e0-472b-8937-f214cb263b7b.png)
 
-#### 生成后端代码返回值实体代码
+#### 生成后端代码XML
 ![微信截图_20220604101429](https://user-images.githubusercontent.com/105904115/171974294-ee6aa2bb-a35f-4589-8b69-078380619dbf.png)
 
-#### 生成后端代码XML
+#### 生成后端代码返回值实体代码
 ![微信截图_20220604101331](https://user-images.githubusercontent.com/105904115/171974305-00173cd8-65be-4855-bfd0-0ca00c4eae5d.png)
 
 #### 生成前端Api代码
